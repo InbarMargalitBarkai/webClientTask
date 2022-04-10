@@ -1,10 +1,35 @@
 body {
-  margin: 0;
+  margin: 100pt;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 15pt;
+  padding-left: 300px;
+  background-color:aquamarine;
+}
+
+div {
+  font-size: 10pt;
+  padding-left: 110px;
+  position: absolute; bottom: 325px;
+}
+
+input {
+  margin-left: 20px;
+}
+
+button {
+  color: white;
+  background-color:cadetblue;
+  padding: 5px 30px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 code {
