@@ -2,23 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    return (
+        <form method="post">
+            <label>Username</label>
+            <input type="text" required></input>
+                <p> {/*<!---add space between the two lines--->*/}
+                <label>Password</label>&nbsp;
+                </p>
+                <input type="password" required></input>
+                        <p>
+                            <button type="button" onclick="console.log('e')">Login</button>
+                            <div>
+                                <label>Not registered?</label>
+                                <a href=" ">Click here</a>
+                                <label>to register</label>
+                            </div>
+                        </p>
+        </form>
   );
 }
 
