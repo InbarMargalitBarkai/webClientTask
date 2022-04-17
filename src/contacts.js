@@ -35,8 +35,8 @@
     // Get contacts list container from the DOM
     const contactsWrapper = document.getElementById('contacts-list');
     // Loop through array and display each contact in contact-list div
-for (let contact of contactsList) {
-    // Extract contact details
+    for (let contact of contactsList) {
+            // Extract contact details
     const username = contact.Username;
     const nickname = contact.Nickname;
     const password = contact.Password;
@@ -60,8 +60,10 @@ for (let contact of contactsList) {
     contactContainerDiv.appendChild(nicknameDiv);
 
     contactsWrapper.appendChild(contactContainerDiv);
-    console.log(contactContainerDiv);
-};
+        };
 
 
 
+    // Listen for clicks on each contact and select the appropriate conversation
+let list = document.getElementsByClassName('contact-container');
+console.log(list);
