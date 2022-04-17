@@ -20,7 +20,7 @@ body {
     height: 92vh;
     min-height: 300px;
     max-height: 720px;
-    background: #e6eaea;
+    background: #E6EAEA;
 }
 
 @media screen and (max-width: 360px) {

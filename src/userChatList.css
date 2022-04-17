@@ -1,0 +1,60 @@
+#contacts-list {
+    margin-top: auto;
+    width: 700px;
+    border: #d0d8dc solid 1px;
+    height: 450px;
+    color: #111;
+    font-family: 'Open Sans', sans-serif;
+}
+    /* main user */
+    #contacts-list h2 {
+        color: #111;
+        background: #e7ecee;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 13px;
+        font-weight: 700;
+        margin: 0;
+        padding-top: 20px;
+        padding-left: 20px;
+        text-align: left;
+        height: 50px;
+    }
+
+        #contacts-list h2 icon {
+            padding-left: 60px;
+        }
+
+.contact-container {
+    height: 70px;
+    display: flex;
+    margin: 5px 0;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+    .contact-container:hover {
+        background-color: darkgray;
+    }
+
+.contact-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    border-radius: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* the scroll bar for the client list */
+div.ex1 {
+    background-color: aliceblue;
+    height: 400px;
+    width: 350px;
+    overflow-y: scroll;
+}
