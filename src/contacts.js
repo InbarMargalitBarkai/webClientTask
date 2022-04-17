@@ -66,4 +66,10 @@
 
     // Listen for clicks on each contact and select the appropriate conversation
 let list = document.getElementsByClassName('contact-container');
-console.log(list);
+for (var i = 0; i < list.length; i++) {
+    list[i].addEventListener("click", myFunction);
+}
+
+function myFunction() {
+    window.location.href = "conversation.html";
+}
