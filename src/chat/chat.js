@@ -27,31 +27,27 @@ $("#status-options ul li").click(function () {
 		$("#profile-img").addClass("offline");
 	} else {
 		$("#profile-img").removeClass();
-	}
+	};
 
 	$("#status-options").removeClass("active");
 });
 
 function newMessage() {
 	message = $(".message-input input").val();
-	if ($.trim(message) == "") {
+	if ($.trim(message) == '') {
 		return false;
 	}
-	$(
-		'<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' +
-		message +
-		"</p></li>"
-	).appendTo($(".messages ul"));
-	$(".message-input input").val(null);
-	$(".contact.active .preview").html("<span>You: </span>" + message);
+	$('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+	$('.message-input input').val(null);
+	$('.contact.active .preview').html('<span>You: </span>' + message);
 	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
-}
+};
 
-$(".submit").click(function () {
+$('.submit').click(function () {
 	newMessage();
 });
 
-$(window).on("keydown", function (e) {
+$(window).on('keydown', function (e) {
 	if (e.which == 13) {
 		newMessage();
 		return false;
