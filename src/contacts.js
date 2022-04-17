@@ -1,4 +1,4 @@
-const contactsList = [
+    const contactsList = [
     {
         Username: 'Lisa',
     Nickname: 'Lisa',
