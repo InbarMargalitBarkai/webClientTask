@@ -15,6 +15,15 @@ image_input.addEventListener("change", function(){
 
 // Validations on username and password
 
+// Return true if 'user' is already used by another user
+function checkUsername(list, user) {
+	const found = list.some(element => element.Username === user);
+	if(found) {
+		return true;
+	}
+	return false;
+}
+
 function validateForm() {  
     //collect form data in JavaScript variables  
     let name = document.getElementById("name").value;  
@@ -24,28 +33,19 @@ function validateForm() {
 
 	console.log(checkUsername(contactsList, name));
 	console.log(name);
-
-	// Return true if 'user' is already used by another user
-	function checkUsername(list, user) {
-		const found = list.some(element => element.Username === user);
-		if(found) {
-			return true;
-		}
-		return false;
-	}
     
 	// Checks that the username field is not empty
 	if(name.length == 0) {
 		alert("Username can't be empty.");
-	// Checks that the username is not used by another user
-	} else if(checkUsername(contactsList, name)) {
-		alert("Username already exists.")
 	// Checks that the nickname field is not empty  
 	} else if(nickname.length == 0) {
 		alert("Nickname can't be empty.");
 	// Checks that the password field is not empty  
 	} else if(password.length == 0) {
 		alert("Password can't be empty.");
+	// Checks that the password verification field is not empty
+	} else if(confirmPassword.length == 0) {
+		alert("You must verify the password.");
 	// Checks that the password is at least 8 characters long
 	} else if(password.length < 8) {
 		alert("Password length must be at least 8 characters.");
@@ -55,12 +55,13 @@ function validateForm() {
 	// Checks that the password contains at least one digit
 	} else if(password.search(/[0-9]/) < 0) {
 		alert("Password must contain at least one digit.");
-	// Checks that the password verification field is not empty
-	} else if(confirmPassword.length == 0) {
-		alert("You must verify the password.");
 	// Checks that password verification is the same as password
 	} else if(password !== confirmPassword) {
-		alert("Passwords are not the same.");
+		alert("The password does not match.");
+	// Checks that the username is not used by another user
+	} else if(checkUsername(contactsList, name)) {
+		alert("Username already exists.")
+	// If the user has registered successfully
 	} else {  
       document.write("Register form has been submitted successfully.");  
     }

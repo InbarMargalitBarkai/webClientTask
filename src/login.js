@@ -9,15 +9,23 @@ function validateLogin() {
     // Checks that the password field is not empty  
     } else if(password.length == 0) {
 		alert("Please enter a password.");
-    console.log(contactsList.Username);
-    console.log(contactsList.Password);
-    } else if(checkUsername(contactsList, name)) {
-        if() {
-            
-        }
+    // Checks that such a username exists in the system
+    } else if(!(checkUsername(contactsList, name))) {
         alert("Username or password are incorrect.");
-    } else {
-        alert("success");
+    // If such a username exists in the system, 
+    // checks that the password matches the username
+    } else if(checkUsername(contactsList, name)) {
+        for(let contact of contactsList) {
+            if(contact.Username === name) {
+                if(password !== contact.Password) {
+                    alert("Username or password are incorrect.");
+                }
+                // If the login is valid
+                else {
+                    document.write("Login successfully");
+                    break; 
+                }
+            }
+        }
     }
-    
 }
