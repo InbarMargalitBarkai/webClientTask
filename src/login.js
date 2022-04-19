@@ -22,8 +22,11 @@ function validateLogin() {
                 }
                 // If the login is valid
                 else {
-                    document.write("Login successfully");
-                    break; 
+                    //document.write("Login successfully");
+                    //break; 
+                  
+                    localStorage.setItem("name", name);
+                    window.location.href = "chatAfterRegister.html";
                 }
             }
         }
