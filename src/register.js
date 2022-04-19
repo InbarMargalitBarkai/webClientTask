@@ -30,9 +30,9 @@ function validateForm() {
     let nickname = document.getElementById("nickname").value;  
 	let password = document.getElementById("password").value;  
     let confirmPassword = document.getElementById("confirm-password").value; 
+	let image = document.getElementById("image_input").value;
 
-	console.log(checkUsername(contactsList, name));
-	console.log(name);
+	console.log(contactsList);	
     
 	// Checks that the username field is not empty
 	if(name.length == 0) {
@@ -61,8 +61,19 @@ function validateForm() {
 	// Checks that the username is not used by another user
 	} else if(checkUsername(contactsList, name)) {
 		alert("Username already exists.")
-	// If the user has registered successfully
+	// If the user has registered successfully, 
+	// update his details in the contacts list
 	} else {  
-      document.write("Register form has been submitted successfully.");  
+		// if he uploaded a picture
+		if(image !== null) {
+			contactsList.push({Username: name, Nickname: nickname, 
+				Password: password, photoUrl: image});
+		// and if not
+		} else {
+			contactsList.push({Username: name, Nickname: nickname,
+				Password: password});
+		}
+		console.log(contactsList);
+    	document.write("Register form has been submitted successfully.");  
     }
  }  
