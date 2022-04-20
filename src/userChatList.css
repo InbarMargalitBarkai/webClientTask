@@ -58,3 +58,11 @@ div.ex1 {
     width: 350px;
     overflow-y: scroll;
 }
+
+a.img {
+    height: 40px;
+    width: 40px;
+    border-radius: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

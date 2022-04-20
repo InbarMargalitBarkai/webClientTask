@@ -7,9 +7,11 @@ if (div) {
 
 // display image
 var bannerImg = document.getElementById("image");
-
 if (bannerImg) {
-    bannerImg.innerHTML = localStorage.getItem("photo");
+    var image = document.createElement("img");
+    image.id = "image";
+    image.src = localStorage.getItem("photo");
+    bannerImg.appendChild(image);
 }
 
 

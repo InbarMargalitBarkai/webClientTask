@@ -77,16 +77,13 @@ function validateForm() {
                 Password: password
             });
         }
-        //console.log(contactsList);
+      console.log(contactsList);
         //document.write("Register form has been submitted successfully.");
 
         // adding nickname in the app screen chat
         localStorage.setItem("name", nickname);
         // adding photo in the app screen chat
-        var img = document.createElement('img');
-        img.src = uploaded_image;
-        document.body.appendChild(img);
-        localStorage.setItem("photo", img.src);
+        localStorage.setItem("photo", uploaded_image);
         window.location.href = "chatAfterRegister.html";
     }
 }
