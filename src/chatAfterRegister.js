@@ -1,9 +1,3 @@
-// display nickname
-    var div = document.getElementById("user");
-if (div) {
-    div.innerHTML = localStorage.getItem("name");
-}
-
 
 // display image
 var bannerImg = document.getElementById("image");
@@ -13,6 +7,16 @@ if (bannerImg) {
     image.src = localStorage.getItem("photo");
     bannerImg.appendChild(image);
 }
+
+// display nickname
+var div = document.getElementById("user");
+if (div) {
+    div.innerHTML = localStorage.getItem("name");
+}
+
+
+
+
 
 
 

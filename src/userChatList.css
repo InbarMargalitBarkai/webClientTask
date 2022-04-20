@@ -1,8 +1,8 @@
 #contacts-list {
     margin-top: auto;
+    margin-bottom: auto;
     width: 700px;
     border: #d0d8dc solid 1px;
-    height: 500px;
     color: #111;
     font-family: 'Open Sans', sans-serif;
 }
@@ -12,17 +12,17 @@
         background: #e7ecee;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 700;
         margin: 0;
-        padding-top: 20px;
-        padding-left: 20px;
+        padding-top: 10px;
+        padding-left: 0px;
         text-align: left;
         height: 60px;
     }
 
         #contacts-list h2 icon {
-            padding-left: 60px;
+            padding-left: 120px;
         }
 
 .contact-container {
@@ -54,10 +54,11 @@ img {
 /* the scroll bar for the client list */
 div.ex1 {
     background-color: aliceblue;
-    height: 400px;
+    height: 300px;
     width: 350px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
+
 
 a.img {
     height: 40px;
