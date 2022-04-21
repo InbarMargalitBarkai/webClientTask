@@ -24,9 +24,26 @@ function validateLogin() {
                 else {
                     //document.write("Login successfully");
                     //break; 
-                  
-                    localStorage.setItem("name", name);
-                    window.location.href = "chatAfterRegister.html";
+                    var nickname = "";
+                    var uploaded_image;
+                    event.preventDefault();
+                    // take the user details to create his photo and nickname
+                    for (let c of contactsList) {
+                        if (c.Username === name) {
+                            nickname = c.Nickname;
+                            uploaded_image = c.photoUrl;
+                        }
+                    }
+
+                    // save the realNmae
+                    localStorage.setItem("n", name);
+
+                    // adding nickname in the app screen chat
+                    localStorage.setItem("name", nickname);
+                    // adding photo in the app screen chat
+                    localStorage.setItem("photo", uploaded_image);
+                   /* localStorage.setItem("name", name);*/
+                    window.location.href = "chatAfterLogin.html";
                 }
             }
         }
