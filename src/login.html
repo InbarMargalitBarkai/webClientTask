@@ -3,21 +3,24 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Login Page </title>
+    <link rel="stylesheet" href="login.css">
+
 
 </head>
 <body>
     <form>
         <div class="container">
             <label>Username</label>
-            <input type="text" id="name" placeholder="Enter Username" name="username" required>
+            <input type="text" id="name" placeholder="Enter Username" name="username" required style="height: 25px">
             <p>
             <label>Password</label>&nbsp;
-            <input type="password" id="password" placeholder="Enter Password" name="password" required>
+            <input type="password" id="password" placeholder="Enter Password" name="password" required style="height: 25px">
             <p>
-            <input type="button" onclick="validateLogin()" value="Login">
-            Not registered? <a href="register.html"> Click here </a> to register
-        </div>
-    </form>
+                    <input type="button" onclick="validateLogin()" value="Login" style="font-size: 20px; height: 35px; width: 75px">
+                    Not registered? <a href="register.html"> Click here </a> to register
+                  
+                </div>
+</form>
     <script src="login.js"></script>
     <script src="allUsers.js"></script>
     <script src="register.js"></script>
