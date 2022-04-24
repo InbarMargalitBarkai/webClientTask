@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <button id="play">RECORD</button>
+    <button id="pause">STOP</button>
+    <div id="ok"></div>
+
+    <script>
+        play.onclick = () => {
+            navigator.mediaDevices.getUserMedia({audio: true}).then(stream => {
+                mediaRecorder = new MediaRecorder(stream)
+                mediaRecorder.start()
+                items = []
+                mediaRecorder.addEventListener("dataavailable", e => {
+                    items.push(e.data)
+                })
+
+                mediaRecorder.addEventListener("stop", e => {
+                    blob = new Blob(items)
+                    audioUrl = URL.createObjectURL(blob);
+                    audio = new Audio(audioUrl);
+                    audio.setAttribute("controls", 1);
+                    ok.appendChild(audio);
+                })
+            })
+        }
+
+        pause.onclick = () => { mediaRecorder.stop() }
+    </script>
+</body>
+</html>
