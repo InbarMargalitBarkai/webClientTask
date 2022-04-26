@@ -2,13 +2,17 @@
 <html lang="en">
 
 <body>
+
+    <!--when click on RECORD button it will record
+    and when press on STOP button will end the record and create object-->
     <button id="play">RECORD</button>
     <button id="pause">STOP</button>
     <div id="ok"></div>
 
+
     <script>
         play.onclick = () => {
-            navigator.mediaDevices.getUserMedia({audio: true}).then(stream => {
+            navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
                 mediaRecorder = new MediaRecorder(stream)
                 mediaRecorder.start()
                 items = []
@@ -27,6 +31,9 @@
         }
 
         pause.onclick = () => { mediaRecorder.stop() }
+    
     </script>
+
+  
 </body>
 </html>

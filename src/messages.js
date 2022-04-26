@@ -9,35 +9,16 @@ $("#profile").toggleClass("expanded");
     $("#contacts").toggleClass("expanded");
 });
 
-// $("#status-options ul li").click(function() {
-//     $("#profile-img").removeClass();
-//     $("#status-online").removeClass("active");
-//     $("#status-away").removeClass("active");
-//     $("#status-busy").removeClass("active");
-//     $("#status-offline").removeClass("active");
-//     $(this).addClass("active");
-    
-//     if($("#status-online").hasClass("active")) {
-//         $("#profile-img").addClass("online");
-//     } else if ($("#status-away").hasClass("active")) {
-//         $("#profile-img").addClass("away");
-//     } else if ($("#status-busy").hasClass("active")) {
-//         $("#profile-img").addClass("busy");
-//     } else if ($("#status-offline").hasClass("active")) {
-//         $("#profile-img").addClass("offline");
-//     } else {
-//         $("#profile-img").removeClass();
-//     };
-    
-//     $("#status-options").removeClass("active");
-// });
 
 function newMessage() {
+    var t = new Date().toLocaleTimeString();
+    var d = new Date().toLocaleDateString();
+    var time = t + " " + d + ' ';
     message = $(".message-input input").val();
     if($.trim(message) == '') {
         return false;
     }
-    $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+    $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + time + '<br>' + message + '</p></li>').appendTo($('.messages ul'));
     $('.message-input input').val(null);
     $('.contact.active .preview').html('<span>You: </span>' + message);
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
@@ -55,9 +36,14 @@ if (e.which == 13) {
 });
 
 // upload an image in chat
-
 function chooseImage() {
     document.getElementById("imageInput").click();
+}
+
+
+// upload video in chat
+function chooseVideo() {
+    document.getElementById("videoInput").click();
 }
 
 
@@ -65,6 +51,9 @@ function chooseImage() {
 
 
 function sendImage(event) {
+    var t = new Date().toLocaleTimeString();
+    var d = new Date().toLocaleDateString();
+    var time = t + " " + d + ' ';
     var file = event.files[0];
     var bannerPic = document.getElementById("displayImage");
     if(!file.type.match("image.*")) {
@@ -79,9 +68,11 @@ function sendImage(event) {
                 picture.src = message;
                 bannerPic.appendChild(picture);
             }
-            $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+            $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + time + '<br>' + message
+ + '</p></li>').appendTo($('.messages ul'));
             $('.message-input input').val(null);
-            $('.contact.active .preview').html('<span>You: </span>' + message);
+            $('.contact.active .preview').html('<span>You: </span>'
+);
             $(".messages").animate({ scrollTop: $(document).height() }, "fast");
         }, false);
         
@@ -90,15 +81,28 @@ function sendImage(event) {
         }
     }
 }
-        
-// const image_input = document.querySelector("#image_input");
-// var uploaded_image = "";
 
-// image_input.addEventListener("change", function () {
-//     const reader = new FileReader();
-//     reader.addEventListener("load", () => {
-//         uploaded_image = reader.result;
-//         document.querySelector("#display_image").style.backgroundImage = 'url(' + uploaded_image + ')';
-//     });
-//     reader.readAsDataURL(this.files[0]);
-// })
+
+function sendVideo(event) {
+    var file = event.files[0];
+    var bannerPic = document.getElementById("displayVideo");
+        var reader = new FileReader();
+        reader.addEventListener("load", function () {
+            var message = reader.result;
+            if (bannerPic) {
+                var video = document.createElement("video");
+                video.id = "video";
+                video.src = message;
+                bannerPic.appendChild(video);
+            }
+            $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+            $('.message-input input').val(null);
+            $('.contact.active .preview').html('<span>You: </span>' + message);
+            $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+        
