@@ -1,3 +1,5 @@
+// this is for the user details
+
 
 // display image
 var bannerImg = document.getElementById("image");

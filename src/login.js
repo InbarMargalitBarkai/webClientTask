@@ -43,7 +43,7 @@ function validateLogin() {
                     // adding photo in the app screen chat
                     localStorage.setItem("photo", uploaded_image);
                    /* localStorage.setItem("name", name);*/
-                    window.location.href = "chatAfterLogin.html";
+                    window.location.href = "chatAfterLoginNew.html";
                 }
             }
         }
