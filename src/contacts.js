@@ -61,6 +61,15 @@ function addIdentifier() {
     }
 
     function myFunction(theNickname) {
+        // delete the previous messages (of another contact conversation and not sending again thhe conversation of the contact)
+        $('.messages ul').empty();
+
+        // show the div (the messgae chat side) only after there was a click in thhe contact list (choose conversation)
+        document.getElementById("showAfterClickContact").style.display = "";
+
+
+        let allMessagesSent = '<ul>';
+
         // place the contact nickname in the conversation
         var j = document.getElementById("contactNickname");
         if (j) {
