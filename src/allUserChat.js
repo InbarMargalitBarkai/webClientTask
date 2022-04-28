@@ -2,48 +2,45 @@
 
 var mainUserRealUserName = localStorage.getItem("n");
 
-    // Display contacts list on page
-    // Get contacts list container from the DOM
-    const contactsWrapper = document.getElementById('contacts-list');
-    // Loop through array and display each contact in contact-list div
+// Display contacts list on page
+// Get contacts list container from the DOM
+const contactsWrapper = document.getElementById('contacts-list');
+// Loop through array and display each contact in contact-list div
 for (let contact of contactsList) {
-        // show all users except mainUserRealUserName
-        if (contact.Username === mainUserRealUserName) {
-            continue;
-        } else {
-            // Extract contact details
-            const username = contact.Username;
-            const nickname = contact.Nickname;
-            const password = contact.Password;
-            const photoUrl = contact.photoUrl;
+    // show all users except mainUserRealUserName
+    if (contact.Username === mainUserRealUserName) {
+        continue;
+    } else {
+        // Extract contact details
+        const username = contact.Username;
+        const nickname = contact.Nickname;
+        const password = contact.Password;
+        const photoUrl = contact.photoUrl;
 
 
-            //create img tag to hold contact pic, give it a class name (for styling purposes) and add photo to it
-            const contactPhoto = document.createElement('img');
-            contactPhoto.classList.add('contact-photo');
-            contactPhoto.src = photoUrl;
+        //create img tag to hold contact pic, give it a class name (for styling purposes) and add photo to it
+        const contactPhoto = document.createElement('img');
+        contactPhoto.classList.add('contact-photo');
+        contactPhoto.src = photoUrl;
 
-            //create div to hold contact nickname and add name
-            const nicknameDiv = document.createElement('div');
-            nicknameDiv.classList.add('contact-name');
-            nicknameDiv.innerText = nickname;
+        //create div to hold contact nickname and add name
+        const nicknameDiv = document.createElement('div');
+        nicknameDiv.classList.add('contact-name');
+        nicknameDiv.innerText = nickname;
 
-            //create contact parent div and add to it contactPhotoDiv and usernameDiv
-            const contactContainerDiv = document.createElement('div');
-            contactContainerDiv.classList.add('contact-container');
+        //create contact parent div and add to it contactPhotoDiv and usernameDiv
+        const contactContainerDiv = document.createElement('div');
+        contactContainerDiv.classList.add('contact-container');
 
-            contactContainerDiv.appendChild(contactPhoto);
-            contactContainerDiv.appendChild(nicknameDiv);
+        contactContainerDiv.appendChild(contactPhoto);
+        contactContainerDiv.appendChild(nicknameDiv);
 
-            contactsWrapper.appendChild(contactContainerDiv);
-        }
-    };
+        contactsWrapper.appendChild(contactContainerDiv);
+    }
+}
 
-   
-
-
-    // Listen for clicks on each contact and select the appropriate conversation
-    let list = document.getElementsByClassName('contact-container');
+// Listen for clicks on each contact and select the appropriate conversation
+let list = document.getElementsByClassName('contact-container');
 for (var i = 0; i < list.length; i++) {
     // saving the nickname of the contact
     let a = list[i].getElementsByClassName('contact-name')[0];
@@ -61,15 +58,15 @@ function myFunction(theNickname) {
     // show the div (the messgae chat side) only after there was a click in thhe contact list (choose conversation)
     document.getElementById("showAfterClickContact").style.display = "";
 
-   
-    let allMessagesSent = '<ul>';
+    let allMessagesSent = '';
 
     // place the contact nickname in the conversation
     var j = document.getElementById("contactNickname");
     if (j) {
         j.innerHTML = theNickname;
     }
-        // place the contact photo in the conversation
+    
+    // place the contact photo in the conversation
     var i = document.getElementById("contactPhoto");
     if (i) {
         for (let c of contactsList) {
@@ -84,6 +81,7 @@ function myFunction(theNickname) {
             }
         }
     }
+
     // place the messages
     // move on the messageList of the chosen contact
     for (let v of contactsList) {
@@ -93,8 +91,9 @@ function myFunction(theNickname) {
             }
         }
     }
-    allMessagesSent += '</ul>';
 
     $('<li class="sent">' + allMessagesSent).appendTo($('.messages ul'));
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 }
+
+    
