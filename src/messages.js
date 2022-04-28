@@ -18,7 +18,7 @@ function newMessage() {
     if($.trim(message) == '') {
         return false;
     }
-    $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + time + '<br>' + message + '</p></li>').appendTo($('.messages ul'));
+    $('<li class="sent"><p>' + time + '<br>' + message + '</p></li>').appendTo($('.messages ul'));
     $('.message-input input').val(null);
     $('.contact.active .preview').html('<span>You: </span>' + message);
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
@@ -95,7 +95,7 @@ function sendVideo(event) {
                 video.src = message;
                 bannerPic.appendChild(video);
             }
-            $('<li class="sent"><img src="https://talkjs.com/images/avatar-1.jpg" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+            $('<li class="sent"><p>' + message + '</p></li>').appendTo($('.messages ul'));
             $('.message-input input').val(null);
             $('.contact.active .preview').html('<span>You: </span>' + message);
             $(".messages").animate({ scrollTop: $(document).height() }, "fast");

@@ -56,32 +56,30 @@
             </div>
             <div class="message-input">
                 <div class="wrap">
-                    <p>
-                        <input type="text" placeholder="Write your message..." />
-                        <button class="submit">
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        </button>
+                    
+                    <input type="text" placeholder="Write your message..." />
+                    <button class="submit">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                    <!--record-->
+                    <a href="#divTwo" class="btn btn-link" style="color: #32465a"><span class="bi bi-mic-fill"></span></a>
 
+                    <!--picture-->
+                    <a class="btn btn-link" onclick="chooseImage()" style="color: #32465a">
+                        <span class="bi bi-image"></span>
+                        <input type="file" id="imageInput" onchange="sendImage(this);"
+                                accept="images/*" style="display: none;">
+                        <!--<div id="displayImage"></div>-->
+                    </a>
 
-                        <!--record-->
-                        <a href="#divTwo" class="btn btn-link" style="color: black"><span class="bi bi-mic-fill"></span></a>
-
-                        <!--picture-->
-                        <a class="btn btn-link" onclick="chooseImage()" style="color: #32465a">
-                            <span class="bi bi-image"></span>
-                            <input type="file" id="imageInput" onchange="sendImage(this);"
-                                   accept="images/*" style="display: none;">
-                            <!--<div id="displayImage"></div>-->
-                        </a>
-
-                        <!--video-->
-                        <a class="btn btn-link" onclick="chooseVideo()" style="color: #32465a">
-                            <span class="bi bi-camera-reels-fill"></span>
-                            <input type="file" id="videoInput" onchange="sendVideo(this);"
-                                   style="display: none;">
-                            <div id="displayVideo"></div>
-                        </a>
-                    </p>
+                    <!--video-->
+                    <a class="btn btn-link" onclick="chooseVideo()" style="color: #32465a">
+                        <span class="bi bi-camera-reels-fill"></span>
+                        <input type="file" id="videoInput" onchange="sendVideo(this);"
+                                style="display: none;">
+                        <div id="displayVideo"></div>
+                    </a>
+                    
                 </div>
             </div>
         </div>
