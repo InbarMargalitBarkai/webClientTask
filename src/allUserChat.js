@@ -55,10 +55,15 @@ for (var i = 0; i < list.length; i++) {
 }
 
 function myFunction(theNickname) {
+    // delete the previous messages (of another contact conversation and not sending again thhe conversation of the contact)
+    $('.messages ul').empty();
 
+    // show the div (the messgae chat side) only after there was a click in thhe contact list (choose conversation)
     document.getElementById("showAfterClickContact").style.display = "";
 
- 
+   
+    let allMessagesSent = '<ul>';
+
     // place the contact nickname in the conversation
     var j = document.getElementById("contactNickname");
     if (j) {
@@ -79,4 +84,17 @@ function myFunction(theNickname) {
             }
         }
     }
+    // place the messages
+    // move on the messageList of the chosen contact
+    for (let v of contactsList) {
+        if (v.Nickname === theNickname) {
+            for (let x = 0; x < v.MessageDetails.length; x++) {
+                allMessagesSent += '<li><p>' + v.MessageDetails[x].time + '<br>' + v.MessageDetails[x].message + '</p></li>';
+            }
+        }
+    }
+    allMessagesSent += '</ul>';
+
+    $('<li class="sent">' + allMessagesSent).appendTo($('.messages ul'));
+    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 }
